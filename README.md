@@ -20,3 +20,6 @@ Replace:
 Upload these 3 files to GitHub/Netlify/Vercel as a static site.
 
 The WhatsApp number in this demo is a placeholder: +91 99999 99999.
+
+## Responsive update
+The demo was revised with stricter mobile breakpoints for phones down to 320px, including stacked sections, full-width CTAs, responsive gallery/cards, and a working mobile navigation menu.

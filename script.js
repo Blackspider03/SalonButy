@@ -1,4 +1,23 @@
-const menu=document.querySelector(".menu"),nav=document.querySelector("#nav");
-menu.addEventListener("click",()=>{nav.style.display=nav.style.display==="flex"?"none":"flex";nav.style.position="absolute";nav.style.top="68px";nav.style.left="0";nav.style.right="0";nav.style.background="#f8f5f1";nav.style.padding="20px 6%";nav.style.flexDirection="column";nav.style.gap="18px"});
-document.querySelectorAll("#nav a").forEach(a=>a.addEventListener("click",()=>{if(innerWidth<=900)nav.style.display="none"}));
-document.querySelector("#bookingForm").addEventListener("submit",e=>{e.preventDefault();const name=document.querySelector("#name").value.trim(),phone=document.querySelector("#phone").value.trim(),service=document.querySelector("#service").value;const msg=`Hi LuxeAura, I would like to book an appointment.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}`;window.open(`https://wa.me/919999999999?text=${msg}`,"_blank")});
+const menu=document.querySelector(".menu");
+const nav=document.querySelector("#nav");
+
+menu.addEventListener("click",()=>{
+  nav.classList.toggle("open");
+});
+
+document.querySelectorAll("#nav a").forEach(a=>{
+  a.addEventListener("click",()=>nav.classList.remove("open"));
+});
+
+window.addEventListener("resize",()=>{
+  if(window.innerWidth>900) nav.classList.remove("open");
+});
+
+document.querySelector("#bookingForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=document.querySelector("#name").value.trim();
+  const phone=document.querySelector("#phone").value.trim();
+  const service=document.querySelector("#service").value;
+  const msg=`Hi LuxeAura, I would like to book an appointment.\n\nName: ${name}\nPhone: ${phone}\nService: ${service}`;
+  window.open(`https://wa.me/919999999999?text=${encodeURIComponent(msg)}`,"_blank");
+});
